@@ -1,5 +1,5 @@
 from colorsys import hls_to_rgb #conversion between different color models
-from cmath import phase, sin #cmath also has a lot of cool complex functions you can graph
+from cmath import phase #cmath also has a lot of cool complex functions you can graph
 from math import pi, floor
 from PIL import Image, ImageDraw
 
@@ -18,7 +18,7 @@ def complex_to_hls(z):
 	s = 1
 	return h, l, s
 
-#Graphs the complex function complex_func
+#Graphs the complex function complex_func (which maps complex numbers to complex numbers)
 def graph(complex_func, center=0, scale=.01, width=500, height=500):
 	im = Image.new("RGB", (width, height), 'white')
 	draw = ImageDraw.Draw(im)
@@ -40,12 +40,12 @@ def graph(complex_func, center=0, scale=.01, width=500, height=500):
 			w_rgb = tuple(floor(255*t) for t in w_rgb)
 			draw.point([x, y], w_rgb)
 	
-	#Uncomment if you want to save the image
-	#im.save("image.png") 
-	im.show()
+	return im
+
 
 #Example code
 
+#from cmath import sin
 #graph(sin, scale = .05)
 
 
